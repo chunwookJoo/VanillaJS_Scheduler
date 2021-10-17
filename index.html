@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container-select-month">
+        <i class="fas fa-angle-left" onclick="prevMonth()"></i>
+        <h2 class="select-month"></h2>
+        <i class="fas fa-angle-right" onclick="nextMonth()"></i>
+      </div>
+      <div class="container-calendar">
+        <div class="date-head">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+        <div class="date-form container-date-sel"></div>
+      </div>
+    </div>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

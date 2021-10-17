@@ -1,0 +1,16 @@
+:root {
+  --font-style: "Nanum Myeongjo", serif;
+  --select-month-font-size: 2rem;
+
+  --max-width-select-month: 1024px;
+  --max-width-container-calendar: 1340px;
+
+  /* color */
+  --color-days-background: antiquewhite;
+  --color-empty-date-background: #dddddd;
+  --color-different-date-background: #f7f7f7;
+  --color-prevnext-month-button-background: #eeeeee;
+  --color-sunday: #ff5d5d;
+  --color-saturday: #5d60ff;
+  --color-weekday: #333333;
+}
