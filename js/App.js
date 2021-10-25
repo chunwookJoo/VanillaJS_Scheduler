@@ -2,18 +2,24 @@ const $ = (selector) => document.querySelector(selector);
 const date = new Date();
 
 function App() {
+  this.currentDate = {
+    year: 0,
+    month: 0,
+    day: 0,
+  };
+
   this.init = () => {
     renderCalendar();
     initEventListener();
+    modalEventListener();
   };
 
   const renderCalendar = () => {
     const currentYear = date.getFullYear();
     const currentMonth = date.getMonth();
 
-    console.log(currentYear);
-    console.log(currentMonth);
-    console.log(date);
+    this.currentDate.year = currentYear;
+    this.currentDate.month = currentMonth;
 
     $(".select-month").innerText = `${currentYear}년 ${
       currentMonth + 1 < 10 ? "0" + (currentMonth + 1) : currentMonth + 1
@@ -63,23 +69,24 @@ function App() {
     $(".prev-month-btn").addEventListener("click", () => {
       date.setMonth(date.getMonth() - 1);
       renderCalendar();
+      modalEventListener();
     });
 
     $(".next-month-btn").addEventListener("click", () => {
       date.setMonth(date.getMonth() + 1);
       renderCalendar();
+      modalEventListener();
     });
+  };
 
+  const modalEventListener = () => {
     // 모달 입력 창 띄우기
-    renderCalendar();
-    const modalTitleYear = date.getFullYear();
-    const modalTitleMonth = date.getMonth();
     const currentDays = document.querySelectorAll(".current-days");
     for (let i = 0; i < currentDays.length; i++) {
       currentDays[i].addEventListener("click", () => {
         $(".container-modal").classList.add("show");
-        $(".modal-title").innerText = `${modalTitleYear}년 ${
-          modalTitleMonth + 1
+        $(".modal-title").innerText = `${this.currentDate.year}년 ${
+          this.currentDate.month + 1
         }월 ${currentDays[i].innerText}일 스케줄`;
       });
     }
