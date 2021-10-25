@@ -11,6 +11,10 @@ function App() {
     const currentYear = date.getFullYear();
     const currentMonth = date.getMonth();
 
+    console.log(currentYear);
+    console.log(currentMonth);
+    console.log(date);
+
     $(".select-month").innerText = `${currentYear}년 ${
       currentMonth + 1 < 10 ? "0" + (currentMonth + 1) : currentMonth + 1
     }월`;
@@ -67,20 +71,23 @@ function App() {
     });
 
     // 모달 입력 창 띄우기
+    renderCalendar();
+    const modalTitleYear = date.getFullYear();
+    const modalTitleMonth = date.getMonth();
     const currentDays = document.querySelectorAll(".current-days");
     for (let i = 0; i < currentDays.length; i++) {
       currentDays[i].addEventListener("click", () => {
-        $(".container-modal").innerHTML = modalTemplate();
+        $(".container-modal").classList.add("show");
+        $(".modal-title").innerText = `${modalTitleYear}년 ${
+          modalTitleMonth + 1
+        }월 ${currentDays[i].innerText}일 스케줄`;
       });
     }
-  };
 
-  const modalTemplate = () => {
-    return `
-      <div class="overlay"></div>
-      <div class="modal">
-        <div class="modal-content">나는야 모달</div>
-      </div>`;
+    // 모달 입력 창 닫기
+    $(".overlay").addEventListener("click", () => {
+      $(".container-modal").classList.remove("show");
+    });
   };
 }
 

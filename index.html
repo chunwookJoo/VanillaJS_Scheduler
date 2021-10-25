@@ -24,17 +24,34 @@
       </div>
       <div class="container-calendar">
         <div class="date-head">
-          <div>Sun</div>
+          <div style="color: #ff5d5d">Sun</div>
           <div>Mon</div>
           <div>Tue</div>
           <div>Wed</div>
           <div>Thu</div>
           <div>Fri</div>
-          <div>Sat</div>
+          <div style="color: #5d60ff">Sat</div>
         </div>
         <div class="date-form container-date-sel"></div>
       </div>
-      <div class="container-modal"></div>
+      <div class="container-modal">
+        <div class="overlay"></div>
+        <div class="modal">
+          <div class="modal-header">
+            <h2 class="modal-title"></h2>
+          </div>
+          <div class="modal-content">
+            <ul>
+              <li>밥먹기</li>
+              <li>공부하기</li>
+              <li>노래부르기</li>
+            </ul>
+          </div>
+          <input placeholder="할 일을 적으세요." type="text" />
+          <button>취소</button>
+          <button>저장</button>
+        </div>
+      </div>
     </div>
     <script src="./js/App.js"></script>
   </body>
