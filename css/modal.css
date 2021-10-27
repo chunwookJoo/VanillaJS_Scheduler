@@ -9,20 +9,68 @@
 
 .modal {
   position: absolute;
+  max-width: 520px;
+  margin: 0 auto;
+  width: 100%;
+  height: var(--modal-height-size);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: var(--color-white);
-  padding: 2rem;
+  padding: 2rem 4rem;
+  border-radius: 4px;
+  box-shadow: rgb(15 15 15 / 5%) 0px 0px 0px 1px,
+    rgb(15 15 15 / 10%) 0px 5px 10px, rgb(15 15 15 / 20%) 0px 15px 40px;
 }
 
 .modal-header {
   font-size: 2rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
+  text-align: center;
 }
 
 .modal-content {
-  position: relative;
+  height: var(--modal-content-height-size);
+  overflow-y: scroll;
+  font-size: 1.2rem;
+}
+
+.modal-input {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1rem;
+}
+
+.input-field {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #9d9d9d;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: 0.2s;
+  outline: none;
+}
+
+.input-field:hover {
+  border: 1px solid #383838;
+  transition: 0.2s;
+}
+
+.todo-save-btn {
+  font-size: 1rem;
+  padding: 0 1rem;
+  border: none;
+  border-radius: 14px;
+  background-color: var(--color-todo-save-btn-backgroun);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 1px 1px 6px 0 rgb(0 0 0 / 30%);
+}
+
+.todo-save-btn:hover {
+  cursor: pointer;
+}
+
+.todo-save-btn:active {
+  transform: scale(0.97);
 }
 
 .overlay {

@@ -14,6 +14,16 @@ function App() {
     modalEventListener();
   };
 
+  const todoTemplate = (todoName) => {
+    return `
+    <li class="todo-item">
+      <input type="checkbox" style="width: 18px; height: 18px" />
+      <span class="todo-name">${todoName}</span>
+      <i class="fas fa-edit"></i>
+      <i class="fas fa-trash"></i>
+    </li>`;
+  };
+
   const renderCalendar = () => {
     const currentYear = date.getFullYear();
     const currentMonth = date.getMonth();
@@ -66,6 +76,11 @@ function App() {
   };
 
   const initEventListener = () => {
+    $(".todo-save-btn").addEventListener("click", addTodo);
+    $("#todo-name").addEventListener("keypress", (e) => {
+      if (e.key === "Enter") addTodo();
+    });
+
     $(".prev-month-btn").addEventListener("click", () => {
       date.setMonth(date.getMonth() - 1);
       renderCalendar();
@@ -79,22 +94,38 @@ function App() {
     });
   };
 
+  const addTodo = () => {
+    if ($("#todo-name").value === "") {
+      alert("할 일을 적어주세요.");
+      return;
+    }
+    const todoName = $("#todo-name").value;
+    $(".todo-list").innerHTML = todoTemplate(todoName);
+    $("#todo-name").value = "";
+  };
+
+  // 모달 입력 창 닫기
+  const modalClose = () => {
+    $(".container-modal").classList.remove("show");
+  };
+
+  // 모달 입력 창 띄우기
+  const modalShow = () => {
+    $(".container-modal").classList.add("show");
+  };
+
   const modalEventListener = () => {
-    // 모달 입력 창 띄우기
     const currentDays = document.querySelectorAll(".current-days");
     for (let i = 0; i < currentDays.length; i++) {
       currentDays[i].addEventListener("click", () => {
-        $(".container-modal").classList.add("show");
-        $(".modal-title").innerText = `${this.currentDate.year}년 ${
-          this.currentDate.month + 1
-        }월 ${currentDays[i].innerText}일 스케줄`;
+        modalShow(),
+          ($(".modal-title").innerText = `${this.currentDate.year}년 ${
+            this.currentDate.month + 1
+          }월 ${currentDays[i].innerText}일 스케줄`);
       });
     }
 
-    // 모달 입력 창 닫기
-    $(".overlay").addEventListener("click", () => {
-      $(".container-modal").classList.remove("show");
-    });
+    $(".overlay").addEventListener("click", modalClose);
   };
 }
 

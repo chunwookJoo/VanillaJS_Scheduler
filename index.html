@@ -41,15 +41,20 @@
             <h2 class="modal-title"></h2>
           </div>
           <div class="modal-content">
-            <ul>
-              <li>밥먹기</li>
-              <li>공부하기</li>
-              <li>노래부르기</li>
-            </ul>
+            <ul class="todo-list"></ul>
           </div>
-          <input placeholder="할 일을 적으세요." type="text" />
-          <button>취소</button>
-          <button>저장</button>
+          <div class="modal-input">
+            <input
+              id="todo-name"
+              name="todoName"
+              class="input-field"
+              placeholder="할 일을 적으세요."
+              type="text"
+            />
+            <button type="button" name="submit" class="todo-save-btn">
+              저장
+            </button>
+          </div>
         </div>
       </div>
     </div>
